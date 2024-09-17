@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c72aleytdto1u"]
+
+[ext_resource type="Texture2D" uid="uid://4v8rb5jmelm2" path="res://assets/download-removebg-preview.png" id="1_ymtqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lh25i"]
+radius = 49.0
+
+[node name="Star" type="Area2D"]
+
+[node name="Download-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+texture = ExtResource("1_ymtqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("CircleShape2D_lh25i")
