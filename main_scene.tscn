@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbc7tvr4que0j"]
+[gd_scene load_steps=9 format=3 uid="uid://dbc7tvr4que0j"]
 
 [ext_resource type="Texture2D" uid="uid://h7c3yj0ynpqx" path="res://assets/images-removebg-preview.png" id="1_5xhun"]
+[ext_resource type="Script" path="res://Global.gd" id="1_sa1hc"]
+[ext_resource type="Texture2D" uid="uid://ib7w8c42hkn0" path="res://assets/360_F_88981880_YjJManMJ6hJmKr5CZteFJAkEzXIh8mxW.jpg" id="2_d0q5p"]
+[ext_resource type="PackedScene" uid="uid://dqk24ru6w4778" path="res://objects/main_character.tscn" id="3_kutm3"]
+[ext_resource type="PackedScene" uid="uid://c72aleytdto1u" path="res://objects/star.tscn" id="4_1qwu5"]
+[ext_resource type="Script" path="res://label.gd" id="6_u1a00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rhn2m"]
 texture = ExtResource("1_5xhun")
@@ -23,6 +28,7 @@ texture = ExtResource("1_5xhun")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.25, -8, 8, 8, 8, 8, -8, -8, -8)
 4:1/0 = 0
 5:1/0 = 0
 6:1/0 = 0
@@ -179,11 +185,64 @@ texture = ExtResource("1_5xhun")
 14:10/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_8fub7"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rhn2m")
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_sa1hc")
+
+[node name="360F88981880YjJManMj6hJmKr5cZteFjAkEzXIh8MxW" type="Sprite2D" parent="."]
+position = Vector2(582.5, 326)
+scale = Vector2(1.93833, 1.80556)
+texture = ExtResource("2_d0q5p")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8fub7")
 format = 2
-layer_0/tile_data = PackedInt32Array(4, 196608, 1, 6, 196608, 1, 65539, 196608, 1, 65540, 196608, 1, 5, 196608, 1)
+layer_0/tile_data = PackedInt32Array(196610, 196608, 1, 196611, 196608, 1, 196612, 196608, 1, 131081, 196608, 1, 131082, 196608, 1, 131083, 196608, 1, 131084, 196608, 1, 327686, 196608, 1, 327687, 196608, 1, 327688, 196608, 1, 327689, 196608, 1, 327690, 196608, 1, 327691, 196608, 1, 458765, 196608, 1, 458766, 196608, 1, 458767, 196608, 1, 458768, 196608, 1, 458769, 196608, 1, 458770, 196608, 1, 262158, 196608, 1, 262159, 196608, 1, 262160, 196608, 1, 262161, 196608, 1, 262162, 196608, 1, 65550, 196608, 1, 65551, 196608, 1, 65552, 196608, 1, 65553, 196608, 1, 65554, 196608, 1, 65555, 196608, 1)
+
+[node name="MainCharacter" parent="." instance=ExtResource("3_kutm3")]
+position = Vector2(53, 29)
+scale = Vector2(0.05, 0.05)
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+zoom = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="MainCharacter/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3481.0
+offset_top = -454.0
+offset_right = 2316.0
+offset_bottom = 6354.0
+rotation = 0.00998036
+
+[node name="Label" type="Label" parent="MainCharacter/Camera2D/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.748
+anchor_top = 0.305
+anchor_right = 0.854
+anchor_bottom = 0.305
+offset_left = -4607.92
+offset_top = -285.885
+offset_right = 711.84
+offset_bottom = 5586.12
+rotation = -0.000229748
+script = ExtResource("6_u1a00")
+
+[node name="Star" parent="." instance=ExtResource("4_1qwu5")]
+position = Vector2(128, 68)
+scale = Vector2(0.1, 0.1)
+
+[node name="Star2" parent="." instance=ExtResource("4_1qwu5")]
+position = Vector2(166, 20)
+scale = Vector2(0.1, 0.1)
+
+[node name="Star3" parent="." instance=ExtResource("4_1qwu5")]
+position = Vector2(244, 102)
+scale = Vector2(0.1, 0.1)
+
+[node name="Star4" parent="." instance=ExtResource("4_1qwu5")]
+position = Vector2(275, 3)
+scale = Vector2(0.1, 0.1)

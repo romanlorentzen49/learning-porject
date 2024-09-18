@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqk24ru6w4778"]
+[gd_scene load_steps=4 format=3 uid="uid://dqk24ru6w4778"]
 
 [ext_resource type="Texture2D" uid="uid://baucvuwvrpikb" path="res://assets/215080.png" id="1_r7e4q"]
+[ext_resource type="Script" path="res://objects/main_character.gd" id="1_uten7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ow85"]
 radius = 179.0
 height = 466.0
 
 [node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_uten7")
 
 [node name="215080" type="Sprite2D" parent="."]
 position = Vector2(-4, 2)
